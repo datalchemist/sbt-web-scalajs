@@ -4,11 +4,11 @@ sys.props.get("plugin.version") match {
                          |Specify this property using the scriptedLaunchOpts -D.""".stripMargin)
 }
 
+val scalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).getOrElse("0.6.22")
+
 // fast development turnaround when using sbt ~re-start
-addSbtPlugin("io.spray" % "sbt-revolver" % "0.9.0")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.2.2")
-
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.20")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.3.12")
+addSbtPlugin("io.spray"           % "sbt-revolver"             % "0.9.0")
+addSbtPlugin("com.typesafe.sbt"   % "sbt-native-packager"      % "1.2.2")
+addSbtPlugin("org.scala-js"       % "sbt-scalajs"              % scalaJSVersion)
+addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "0.3.1")
+addSbtPlugin("com.typesafe.sbt"   % "sbt-twirl"                % "1.3.12")
